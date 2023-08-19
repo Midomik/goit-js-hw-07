@@ -25,15 +25,18 @@ renderGalery(galleryItems);
 
 
 const openOriginPhoto = (e) => {
+    e.preventDefault();
+
     if (e.currentTarget === e.target){
-        return;
+         return;
     }
 
 
-const modalWindow = basicLightbox.create('<div class="modal"> </div>');
-modalWindow.show();
-
-console.log("###")
+    const instance = basicLightbox.create(`
+        <img src="${e.target.dataset.source}" width="800" height="600">
+    `)
+    instance.show()
+    
 }
 
 galaryList.addEventListener("click", openOriginPhoto);
