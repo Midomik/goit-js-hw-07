@@ -31,19 +31,26 @@ const openOriginPhoto = (e) => {
     }
 
 
-    const instance = basicLightbox.create(`
+    let instance = basicLightbox.create(`
         <img claas="lazyload" src="${e.target.src}" data-src="${e.target.dataset.source}" width="800" height="600">
-    `)
+     `)
     instance.show();
+
+
+    if(e.target.tagName !==  "IMG") return
+
+     instance = basicLightbox.create(html, {
+		onShow: (instance) => window.addEventListener("keydown", instance.close()),
+		onClose: (instance) => window.removeEventListener("keydown", instance.close())
+	})
     
+    // const outputValue = (event) => {
+    //     if (event.code==="Escape"){
+    //         instance.close();
+    //     }
+    // }
     
-    const outputValue = (event) => {
-        if (event.code==="Escape"){
-            instance.close();
-        }
-    }
-    
-    document.addEventListener("keydown", outputValue)
+    // document.addEventListener("keydown", outputValue)
 
 }
 

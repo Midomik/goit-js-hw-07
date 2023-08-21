@@ -19,25 +19,9 @@ function renderGalery(imgObject) {
 renderGalery(galleryItems);
 
 
-// function renderSwiperGalery(imgObject){
-//     const renderSwiperPhoto = imgObject.map(item=>{ 
-//         return `<div class="gallery">
-//         <a href=""><img src="" alt="" title=""></a>
-//         </div>`
-//     }).join("");
-    
-// }
-
-
-
 const openSwiper =(e) =>{
-    e.preventDefault();
-    if (e.currentTarget === e.target){
-        return;
-   }
-   console.log("lll")
 
-   var lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250});
+   const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250});
 }
 
 galaryList.addEventListener("click", openSwiper)
