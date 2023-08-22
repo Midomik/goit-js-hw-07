@@ -40,17 +40,17 @@ const openOriginPhoto = (e) => {
     if(e.target.tagName !==  "IMG") return
 
      instance = basicLightbox.create(html, {
-		onShow: (instance) => window.addEventListener("keydown", instance.close()),
-		onClose: (instance) => window.removeEventListener("keydown", instance.close())
+		onShow: (instance) => window.addEventListener("keydown", outputValue),
+		onClose: (instance) => window.removeEventListener("keydown", outputValue)
 	})
     
-    // const outputValue = (event) => {
-    //     if (event.code==="Escape"){
-    //         instance.close();
-    //     }
-    // }
+   const outputValue = (event) => {
+       if (event.code==="Escape"){
+    instance.close();
+     }
+     }
     
-    // document.addEventListener("keydown", outputValue)
+    document.addEventListener("keydown", outputValue)
 
 }
 

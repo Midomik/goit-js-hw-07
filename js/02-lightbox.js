@@ -19,9 +19,8 @@ function renderGalery(imgObject) {
 renderGalery(galleryItems);
 
 
-const openSwiper =(e) =>{
+
 
    const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250});
-}
 
-galaryList.addEventListener("click", openSwiper)
+
