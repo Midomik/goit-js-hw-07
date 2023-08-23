@@ -26,32 +26,27 @@ renderGalery(galleryItems);
 
 const openOriginPhoto = (e) => {
     e.preventDefault();
-    if (e.currentTarget === e.target){
-         return;
+    if(e.target.tagName !==  "IMG") {
+        return
     }
 
 
-    let instance = basicLightbox.create(`
+    const instance = basicLightbox.create(`
         <img claas="lazyload" src="${e.target.src}" data-src="${e.target.dataset.source}" width="800" height="600">
-     `)
-    instance.show();
-
-
-    if(e.target.tagName !==  "IMG") return
-
-     instance = basicLightbox.create(html, {
+     `,{
 		onShow: (instance) => window.addEventListener("keydown", outputValue),
 		onClose: (instance) => window.removeEventListener("keydown", outputValue)
 	})
-    
+   
+
    const outputValue = (event) => {
        if (event.code==="Escape"){
     instance.close();
      }
      }
     
-    document.addEventListener("keydown", outputValue)
-
+     
+     instance.show();
 }
 
 
